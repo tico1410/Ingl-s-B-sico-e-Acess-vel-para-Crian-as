@@ -1,0 +1,246 @@
+/* Configurações Base de Acessibilidade */
+:root {
+  --bg-color: #f4f4f9;
+  --text-color: #111111;
+  --card-bg: #ffffff;
+  --primary-btn: #0056b3;
+  --primary-btn-text: #ffffff;
+  --border-color: #cccccc;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --letter-spacing: normal;
+  --line-height: 1.6;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  letter-spacing: var(--letter-spacing);
+  line-height: var(--line-height);
+  font-size: 22px;
+  margin: 0;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 38px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: var(--text-color);
+}
+
+#accessibility-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  background-color: #e0e0e0;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+button {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: var(--primary-btn);
+  color: var(--primary-btn-text);
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 3px solid var(--border-color);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.phrase-block {
+  border-left: 6px solid var(--primary-btn);
+  padding-left: 15px;
+  margin: 20px 0;
+}
+
+.en-text {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.pt-text {
+  font-size: 22px;
+  font-style: italic;
+  margin: 5px 0 10px 0;
+}
+
+/* --- ESTILOS DE ACESSIBILIDADE ALTERNÁVEIS --- */
+
+body.high-contrast {
+  --bg-color: #000000;
+  --text-color: #ffff00;
+  --card-bg: #111111;
+  --primary-btn: #ffff00;
+  --primary-btn-text: #000000;
+  --border-color: #ffff00;
+}
+
+body.high-saturation {
+  filter: saturate(300%);
+}
+
+body.accessible-font {
+  --font-family: 'Comic Sans MS', 'Arial Black', sans-serif;
+}
+
+body.expanded-spacing {
+  --letter-spacing: 3px;
+  --line-height: 2.2;
+}
+
+body.large-cursor, body.large-cursor * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="yellow" stroke="black" stroke-width="2"><path d="M3 3l7 18 3-7 7-3L3 3z"/></svg>'), auto !important;
+}
+
+body.highlight-clickable button,
+body.highlight-clickable a {
+  outline: 6px solid #ff0055 !important;
+  outline-offset: 4px;
+  box-shadow: 0 0 15px #ff0055 !important;
+}
+
+/* Estilos dos Níveis das Atividades */
+.level-container {
+  margin-top: 25px;
+  padding-top: 10px;
+  border-top: 2px dashed var(--border-color);
+}
+
+.level-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.level-1 { background-color: #28a745; }
+.level-2 { background-color: #d97706; }
+.level-3 { background-color: #6d28d9; }
+
+.audio-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-pt {
+  background-color: #4b5563;
+}
+
+/* Suporte ao Alto Contraste */
+body.high-contrast .level-badge {
+  background-color: #000000;
+  color: #ffff00;
+  border: 2px solid #ffff00;
+}
+
+body.high-contrast .btn-pt {
+  background-color: #ffff00;
+  color: #000000;
+}
+/* Atividades de Arrastar e Soltar */
+.drag-activity {
+  background-color: rgba(0, 0, 0, 0.04);
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.sentence-builder {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 26px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.drop-zone {
+  min-width: 140px;
+  height: 50px;
+  border: 4px dashed var(--primary-btn);
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #666;
+  padding: 0 10px;
+}
+
+.drop-zone.drag-over {
+  background-color: #e2f0ff;
+  border-style: solid;
+}
+
+.options-container {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.drag-block {
+  padding: 12px 24px;
+  background-color: var(--primary-btn);
+  color: var(--primary-btn-text);
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: grab;
+  border: 2px solid #000;
+  user-select: none;
+}
+
+.drag-block:active {
+  cursor: grabbing;
+}
+
+.drag-feedback {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+/* Compatibilidade com Alto Contraste */
+body.high-contrast .drag-activity {
+  background-color: #1a1a1a;
+}
+
+body.high-contrast .drop-zone {
+  background-color: #000000;
+  border-color: #ffff00;
+  color: #ffff00;
+}
+
+body.high-contrast .drop-zone.drag-over {
+  background-color: #333300;
+}

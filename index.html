@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprenda Inglês - Acessível</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header role="banner">
+    <h1>Inglês Divertido 🇬🇧</h1>
+    <p class="subtitle">Primeiros passos para aprender um novo idioma em um site feito especificamente para você.</p>
+    
+    <!-- Barra de Ferramentas de Acessibilidade -->
+    <nav id="accessibility-toolbar" aria-label="Ferramentas de Acessibilidade">
+      <button id="btn-contrast" onclick="toggleContrast()">Contraste: Normal</button>
+      <button id="btn-saturation" onclick="toggleSaturation()">Saturação: Normal</button>
+      <button id="btn-font" onclick="toggleFont()">Fonte: Padrão</button>
+      <button id="btn-spacing" onclick="toggleSpacing()">Espaçamento: Normal</button>
+      <button id="btn-cursor" onclick="toggleCursor()">Cursor: Normal</button>
+      <button id="btn-highlight" onclick="toggleHighlight()">Destaque Clicável: OFF</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Módulo 1 -->
+    <section class="card" aria-labelledby="mod1-title">
+      <h2 id="mod1-title">1. APRESENTAÇÃO</h2>
+      <p class="instruction">Aprenda a dizer o seu nome aos seus colegas em inglês:</p>
+
+      <div class="phrase-block">
+        <p class="en-text">Hello! My name is Ana.</p>
+        <p class="pt-text">Olá! O meu nome é Ana.</p>
+        <button class="btn-speak" onclick="speakText('Hello! My name is Ana.')">🔊 Ouvir frase</button>
+      </div>
+
+      <div class="phrase-block">
+        <p class="en-text">Hi, I am Pedro!</p>
+        <p class="pt-text">Oi, eu sou o Pedro!</p>
+        <button class="btn-speak" onclick="speakText('Hi, I am Pedro!')">🔊 Ouvir frase</button>
+      </div>
+    </section>
+
+    <!-- Módulo 2 -->
+    <section class="card" aria-labelledby="mod2-title">
+      <h2 id="mod2-title">2. PERGUNTANDO E RESPONDENDO SOBRE NOMES</h2>
+      <p class="instruction">Formas educadas de cumprimentar e perguntar o nome de alguém:</p>
+
+      <div class="phrase-block">
+        <p class="en-text">Good morning! What is your name?</p>
+        <p class="pt-text">Bom dia! Qual é o seu nome?</p>
+        <button class="btn-speak" onclick="speakText('Good morning! What is your name?')">🔊 Ouvir frase</button>
+      </div>
+
+      <div class="phrase-block">
+        <p class="en-text">Nice to meet you! My name is Lucas.</p>
+        <p class="pt-text">Prazer em te conhecer! Meu nome é Lucas.</p>
+        <button class="btn-speak" onclick="speakText('Nice to meet you! My name is Lucas.')">🔊 Ouvir frase</button>
+      </div>
+    </section>
+  </main>
+ 
+   <!-- Módulo 3: Atividades Práticas por Nível -->
+<section class="card" aria-labelledby="mod3-title">
+  <h2 id="mod3-title">3. ATIVIDADES E PRÁTICAS POR NÍVEL</h2>
+
+  <!-- NÍVEL 1 -->
+  <div class="level-container">
+    <div class="drag-activity" data-correct="mother">
+      <p class="instruction">Complete a frase arrastando a palavra correta:</p>
+      <div class="sentence-builder">
+        <span>This is my</span>
+        <div class="drop-zone" ondragover="allowDrop(event)" ondragleave="removeHighlight(event)" ondrop="dropBlock(event)">???</div>
+      </div>
+      <div class="options-container">
+        <div class="drag-block" draggable="true" ondragstart="dragBlock(event)" id="opt1">mother</div>
+        <div class="drag-block" draggable="true" ondragstart="dragBlock(event)" id="opt2">blue</div>
+        <div class="drag-block" draggable="true" ondragstart="dragBlock(event)" id="opt3">jump</div>
+      </div>
+      <p class="drag-feedback" aria-live="polite"></p>
+    </div>
+    <span class="level-badge level-1">Nível 1 - Cumprimentos, Família e Amigos</span>
+    
+    <div class="phrase-block">
+      <p class="en-text">This is my family and my best friend.</p>
+      <p class="pt-text">Esta é a minha família e meu melhor amigo.</p>
+      <div class="audio-buttons">
+        <button class="btn-speak" onclick="speakText('This is my family and my best friend.')">🔊 Ouvir em Inglês</button>
+        <button class="btn-speak btn-pt" onclick="speakText('Esta é a minha família e meu melhor amigo.')">🗣️ Tradução em Português</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NÍVEL 2 -->
+  <div class="level-container">
+    <div class="drag-activity" data-correct="soccer">
+      <p class="instruction">Complete a frase arrastando a palavra correta:</p>
+      <div class="sentence-builder">
+        <span>I play</span>
+        <div class="drop-zone" ondragover="allowDrop(event)" ondragleave="removeHighlight(event)" ondrop="dropBlock(event)">???</div>
+        <span>on sunny days.</span>
+      </div>
+      <div class="options-container">
+        <div class="drag-block" draggable="true" ondragstart="dragBlock(event)" id="opt4">sleep</div>
+        <div class="drag-block" draggable="true" ondragstart="dragBlock(event)" id="opt5">soccer</div>
+        <div class="drag-block" draggable="true" ondragstart="dragBlock(event)" id="opt6">apple</div>
+      </div>
+      <p class="drag-feedback" aria-live="polite"></p>
+    </div>
+    <span class="level-badge level-2">Nível 2 - Esportes, Saúde, Casa e Clima</span>
+    
+    <div class="phrase-block">
+      <p class="en-text">I play soccer when it is warm and sunny.</p>
+      <p class="pt-text">Eu jogo futebol quando está quente e ensolarado.</p>
+      <div class="audio-buttons">
+        <button class="btn-speak" onclick="speakText('I play soccer when it is warm and sunny.')">🔊 Ouvir em Inglês</button>
+        <button class="btn-speak btn-pt" onclick="speakText('Eu jogo futebol quando está quente e ensolarado.')">🗣️ Tradução em Português</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NÍVEL 3 -->
+  <div class="level-container">
+    <div class="drag-activity" data-correct="doctor">
+      <p class="instruction">Complete a frase arrastando a palavra correta:</p>
+      <div class="sentence-builder">
+        <span>My dream job is to be a</span>
+        <div class="drop-zone" ondragover="allowDrop(event)" ondragleave="removeHighlight(event)" ondrop="dropBlock(event)">???</div>
+      </div>
+      <div class="options-container">
+        <div class="drag-block" draggable="true" ondragstart="dragBlock(event)" id="opt7">swimming</div>
+        <div class="drag-block" draggable="true" ondragstart="dragBlock(event)" id="opt8">yellow</div>
+        <div class="drag-block" draggable="true" ondragstart="dragBlock(event)" id="opt9">doctor</div>
+      </div>
+      <p class="drag-feedback" aria-live="polite"></p>
+    </div>
+    <span class="level-badge level-3">Nível 3 - Situações Diárias, Férias, Hobbies e Trabalho</span>
+    
+    <div class="phrase-block">
+      <p class="en-text">On vacation, my dream job is to be an astronaut.</p>
+      <p class="pt-text">Nas férias, meu trabalho dos sonhos é ser um astronauta.</p>
+      <div class="audio-buttons">
+        <button class="btn-speak" onclick="speakText('On vacation, my dream job is to be an astronaut.')">🔊 Ouvir em Inglês</button>
+        <button class="btn-speak btn-pt" onclick="speakText('Nas férias, meu trabalho dos sonhos é ser um astronauta.')">🗣️ Tradução em Português</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <script src="script.js"></script>
+</body>
+</html>
