@@ -133,3 +133,20 @@ function dropBlock(event) {
     speakText(msg);
   }
 }
+
+// Função para verificar respostas dos quizzes e emitir leitura por voz
+function checkQuizAnswer(buttonElement, isCorrect, message) {
+  const quizCard = buttonElement.closest('.quiz-activity');
+  const feedbackElement = quizCard.querySelector('.quiz-feedback');
+  
+  if (isCorrect) {
+    feedbackElement.innerText = "✅ " + message;
+    feedbackElement.style.color = document.body.classList.contains('high-contrast') ? '#00ff00' : 'green';
+  } else {
+    feedbackElement.innerText = "❌ " + message;
+    feedbackElement.style.color = document.body.classList.contains('high-contrast') ? '#ff5555' : 'red';
+  }
+  
+  // Utiliza o mesmo leitor de voz do site (com suporte a velocidade reduzida em cliques duplos)
+  speakText(message);
+}
