@@ -146,6 +146,11 @@ function checkQuizAnswer(buttonElement, isCorrect, message) {
     feedbackElement.innerText = "❌ " + message;
     feedbackElement.style.color = document.body.classList.contains('high-contrast') ? '#ff5555' : 'red';
   }
+  // Função para Mostrar/Esconder o Menu Lateral de Acessibilidade
+function toggleAccessibilityMenu() {
+  const menu = document.getElementById('accessibility-toolbar');
+  menu.classList.toggle('menu-hidden');
+}
   
   // Utiliza o mesmo leitor de voz do site (com suporte a velocidade reduzida em cliques duplos)
   speakText(message);
