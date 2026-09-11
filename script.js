@@ -58,7 +58,35 @@ function toggleContrast() {
   btn.innerText = `Contraste: ${document.body.classList.contains('high-contrast') ? 'Alto' : 'Normal'}`;
 }
 
+// Adicionar no início ou junto às funções de acessibilidade:
+// Garante que a página inicie no tamanho normal (nível 0)
+let currentFontLevel = 0;
+
+function changeFontSize() {
+  const body = document.body;
+  const btn = document.getElementById('btn-font-size');
+
+  if (!btn) return;
+
+  // Remove o nível de aumento anterior
+  if (currentFontLevel > 0) {
+    body.classList.remove(`font-size-${currentFontLevel}`);
+  }
+
+  // Avança na sequência: 0 (Normal) ➔ 1 (+1) ➔ 2 (+2) ➔ 3 (+3) ➔ 4 (+4) ➔ 0 (Normal)
+  currentFontLevel = (currentFontLevel + 1) % 5;
+
+  // Aplica o novo tamanho ou retorna ao padrão
+  if (currentFontLevel > 0) {
+    body.classList.add(`font-size-${currentFontLevel}`);
+    btn.innerText = `Fonte: +${currentFontLevel}`;
+  } else {
+    btn.innerText = 'Fonte: Normal';
+  }
+}
+
 function toggleSaturation() {
+  document.documentElement.classList.toggle('high-saturation');
   document.body.classList.toggle('high-saturation');
   const btn = document.getElementById('btn-saturation');
   btn.innerText = `Saturação: ${document.body.classList.contains('high-saturation') ? 'Alta' : 'Normal'}`;
@@ -146,12 +174,13 @@ function checkQuizAnswer(buttonElement, isCorrect, message) {
     feedbackElement.innerText = "❌ " + message;
     feedbackElement.style.color = document.body.classList.contains('high-contrast') ? '#ff5555' : 'red';
   }
-  // Função para Mostrar/Esconder o Menu Lateral de Acessibilidade
-function toggleAccessibilityMenu() {
-  const menu = document.getElementById('accessibility-toolbar');
-  menu.classList.toggle('menu-hidden');
-}
   
   // Utiliza o mesmo leitor de voz do site (com suporte a velocidade reduzida em cliques duplos)
   speakText(message);
+}
+
+// Função para Mostrar/Esconder o Menu Lateral de Acessibilidade
+function toggleAccessibilityMenu() {
+  const menu = document.getElementById('accessibility-toolbar');
+  menu.classList.toggle('menu-hidden');
 }
