@@ -1,9 +1,16 @@
+/* Correção da Saturação */
+html.high-saturation,
+body.high-saturation {
+  filter: saturate(350%) contrast(110%) !important;
+  -webkit-filter: saturate(350%) contrast(110%) !important;
+}
+
 /* Configurações Base de Acessibilidade */
 :root {
   --bg-color: #f4f4f9;
   --text-color: #111111;
   --card-bg: #ffffff;
-  --primary-btn: #0056b3;
+  --primary-btn: #1a82c4;
   --primary-btn-text: #ffffff;
   --border-color: #cccccc;
   --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -40,51 +47,89 @@ header h1 {
   color: var(--text-color);
 }
 
-#accessibility-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  background-color: #e0e0e0;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-button {
-  font-size: 18px;
-  font-weight: bold;
-  padding: 12px 20px;
-  border: 2px solid #000;
-  border-radius: 8px;
-  cursor: pointer;
+/* Botão Flutuante de Acessibilidade (Maior) */
+#btn-toggle-menu {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
   background-color: var(--primary-btn);
   color: var(--primary-btn-text);
-}
-
-.card {
-  background-color: var(--card-bg);
-  border: 3px solid var(--border-color);
-  border-radius: 12px;
-  padding: 25px;
-  margin-bottom: 25px;
-}
-
-.phrase-block {
-  border-left: 6px solid var(--primary-btn);
-  padding-left: 15px;
-  margin: 20px 0;
-}
-
-.en-text {
-  font-size: 28px;
+  font-size: 20px;
   font-weight: bold;
-  margin: 5px 0;
+  padding: 14px 22px;
+  border: 3px solid #000;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.pt-text {
+/* Painel Lateral Fixo à Direita */
+#accessibility-toolbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 340px;
+  height: 100vh;
+  background-color: #e0e0e0;
+  border-left: 4px solid var(--border-color);
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1001;
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+#accessibility-toolbar button {
+  font-size: 20px;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+/* Classe para esconder o menu deslizando para fora da tela */
+#accessibility-toolbar.menu-hidden {
+  transform: translateX(100%);
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 22px;
-  font-style: italic;
-  margin: 5px 0 10px 0;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.btn-close-menu {
+  background-color: #d9534f;
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 18px;
+  border: 2px solid #000;
+  border-radius: 6px;
+}
+
+/* Suporte do Menu Lateral para Alto Contraste */
+body.high-contrast #btn-toggle-menu {
+  background-color: #ffff00;
+  color: #000000;
+  border-color: #ffff00;
+}
+
+body.high-contrast #accessibility-toolbar {
+  background-color: #111111;
+  border-left-color: #ffff00;
+}
+
+body.high-contrast .btn-close-menu {
+  background-color: #ffff00;
+  color: #000000;
+  border-color: #ffff00;
 }
 
 /* --- ESTILOS DE ACESSIBILIDADE ALTERNÁVEIS --- */
@@ -98,13 +143,12 @@ body.high-contrast {
   --border-color: #ffff00;
 }
 
-body.high-saturation {
-  filter: saturate(300%);
-}
-
-body.accessible-font {
-  --font-family: 'Comic Sans MS', 'Arial Black', sans-serif;
-}
+/* Níveis de Tamanho de Fonte estilo Enem Paraná */
+/* Níveis de Tamanho de Fonte (Base original: 22px) */
+body.font-size-1 { font-size: 26px; }
+body.font-size-2 { font-size: 30px; }
+body.font-size-3 { font-size: 34px; }
+body.font-size-4 { font-size: 38px; }
 
 body.expanded-spacing {
   --letter-spacing: 3px;
@@ -139,9 +183,19 @@ body.highlight-clickable a {
   color: #ffffff;
 }
 
-.level-1 { background-color: #28a745; }
-.level-2 { background-color: #d97706; }
-.level-3 { background-color: #6d28d9; }
+h2{
+  display: inline-block;
+  padding: 8px 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  background-color: #1a82c4  
+}
+/* Cores dos Níveis de Atividades */
+.level-1 { background-color: #2e7d32; } /* Verde */
+.level-2 { background-color: #e65100; } /* Laranja */
+.level-3 { background-color: #6d28d9; } /* Roxo */
 
 .audio-buttons {
   display: flex;
@@ -151,7 +205,7 @@ body.highlight-clickable a {
 }
 
 .btn-pt {
-  background-color: #4b5563;
+  background-color: white;
 }
 
 /* Suporte ao Alto Contraste */
@@ -196,7 +250,12 @@ body.high-contrast .btn-pt {
   padding: 0 10px;
 }
 
-.drop-zone.drag-over {
+.drop-zone.drag-ov//* Aplica o filtro de saturação no documento inteiro (resolve a incompatibilidade) */
+html.high-saturation,
+body.high-saturation {
+  filter: saturate(350%) contrast(110%) !important;
+  -webkit-filter: saturate(350%) contrast(110%) !important;
+}er {
   background-color: #e2f0ff;
   border-style: solid;
 }
@@ -297,3 +356,4 @@ body.high-contrast .btn-quiz {
   color: #ffff00;
   border-color: #ffff00;
 }
+
