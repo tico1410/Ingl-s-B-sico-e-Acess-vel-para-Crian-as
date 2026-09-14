@@ -356,4 +356,16 @@ body.high-contrast .btn-quiz {
   color: #ffff00;
   border-color: #ffff00;
 }
+/* Destaque para a seção de Objetivo */
+.about-project {
+  margin-top: 35px;
+  border-left: 6px solid var(--primary-btn);
+}
 
+.about-project p {
+  line-height: 1.7;
+}
+
+body.high-contrast .about-project {
+  border-left-color: #ffff00;
+}
