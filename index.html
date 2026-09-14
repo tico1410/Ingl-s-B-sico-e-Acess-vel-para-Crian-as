@@ -113,12 +113,17 @@
   </div>
   <p class="drag-feedback" aria-live="polite"></p>
 </div>
-
- <!-- Segunda Atividade - Nível 1 -->
-<div class="quiz-activity">
-  <p class="instruction">2. Certo ou Errado:</p>
-  <p class="quiz-question">A palavra <strong>"Friend"</strong> significa <strong>"Inimigo"</strong>?</p>
+<!-- Seção Final: Objetivo do Projeto -->
+<section class="card about-project" aria-labelledby="about-title">
+  <h2 id="about-title">Qual é o objetivo deste projeto?</h2>
+  <p id="about-text">
+    Este site foi desenvolvido para tornar o aprendizado da língua inglesa acessível, divertido e autônomo para crianças com deficiência visual ou baixa visão. Unindo síntese de voz bilíngue, comandos adaptados, alto contraste e exercícios interativos, a plataforma elimina as barreiras comuns do ensino tradicional. Mais do que ensinar um novo idioma, este projeto promove a inclusão digital, fortalece a autonomia nos estudos e transforma a vida dessas crianças ao garantir que elas aprendam no seu próprio ritmo com equidade e independência.
+  </p>
   
+  <div class="audio-buttons">
+    <button class="btn-speak btn-pt" onclick="speakText(document.getElementById('about-text').innerText)">🗣️ Ouvir Explicação</button>
+  </div>
+</section>
   <div class="audio-buttons">
     <button class="btn-speak btn-pt" onclick="speakText('A palavra Friend significa Inimigo?')">🔊 Ouvir em Inglês</button>
     <button class="btn-speak btn-pt" onclick="speakText('A palavra Friend significa Inimigo?')">🗣️ Traduzir para o Português</button>
@@ -230,6 +235,19 @@
 
 </section>
 
+<!-- Seção Final: Objetivo do Projeto -->
+<section class="card about-project" aria-labelledby="about-title">
+  <h2 id="about-title">Qual é o objetivo deste projeto?</h2>
+  <p id="about-text">
+    Este site foi desenvolvido para tornar o aprendizado da língua inglesa acessível, divertido e autônomo para crianças com deficiência visual ou baixa visão. Unindo síntese de voz bilíngue, comandos adaptados, alto contraste e exercícios interativos, a plataforma elimina as barreiras comuns do ensino tradicional. Mais do que ensinar um novo idioma, este projeto promove a inclusão digital, fortalece a autonomia nos estudos e transforma a vida dessas crianças ao garantir que elas aprendam no seu próprio ritmo com equidade e independência.
+  </p>
+  
+  <div class="audio-buttons">
+    <button class="btn-speak btn-pt" onclick="speakText(document.getElementById('about-text').innerText)">🗣️ Ouvir Explicação</button>
+  </div>
+</section>
+
   <script src="script.js"></script>
 </body>
 </html>
+
